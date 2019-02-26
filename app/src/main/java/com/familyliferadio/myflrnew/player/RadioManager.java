@@ -1,0 +1,103 @@
+package com.familyliferadio.myflrnew.player;
+
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.util.Log;
+
+import org.greenrobot.eventbus.EventBus;
+
+public class RadioManager {
+
+    private static RadioManager instance = null;
+
+    private static RadioService service;
+
+    private Context context;
+
+    private boolean serviceBound;
+
+    private RadioManager(Context context) {
+        this.context = context;
+        serviceBound = false;
+    }
+
+    public static RadioManager with(Context context) {
+
+        if (instance == null)
+            instance = new RadioManager(context);
+
+        return instance;
+    }
+
+    public static RadioService getService() {
+        return service;
+    }
+
+
+    public void playOrPause(String streamUrl) {
+        Log.d("RequestQuery", " manager playOrPause "+service );
+
+        if (service != null)
+            service.playOrPause(streamUrl);
+    }
+
+
+    public void updateNotification(String title, String url) {
+        service.updateNotifications(title, url);
+    }
+
+    public void setIsAlarmTrue() {
+        service.isAlarm = true;
+    }
+
+    public void startFadeIn() {
+      //  service.startFadeIn();
+    }
+
+    public void setOnZeroVolume() {
+        service.setOnZeroVolume();
+    }
+
+    public boolean isPlaying() {
+
+        return service.isPlaying();
+    }
+
+    public void bind() {
+        Intent intent = new Intent(context, RadioService.class);
+        context.bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+        Log.d("RequestQuery", " manager bind called "+serviceConnection+" "+service );
+
+        if (service != null)
+            EventBus.getDefault().post(service.getStatus());
+    }
+
+    public void unbind() {
+        if (serviceBound) {
+            context.unbindService(serviceConnection);
+            serviceBound = false;
+        }
+    }
+
+    private ServiceConnection serviceConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName arg0, IBinder binder) {
+            Log.d("RequestQuery", " manager onServiceConnected called ");
+
+            service = ((RadioService.LocalBinder) binder).getService();
+            serviceBound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            Log.d("RequestQuery", " manager onServiceDisconnected called ");
+
+            serviceBound = false;
+        }
+    };
+
+}

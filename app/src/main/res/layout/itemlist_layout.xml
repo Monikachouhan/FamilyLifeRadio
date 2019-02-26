@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/_3sdp"
+    android:layout_marginRight="@dimen/_3sdp"
+    android:layout_marginTop="@dimen/_3sdp"
+    android:background="@drawable/shap_list"
+    android:paddingBottom="@dimen/_8sdp"
+    android:paddingTop="@dimen/_8sdp">
+
+    <ImageView
+        android:id="@+id/set_alarm_Bt"
+        android:layout_width="@dimen/_28sdp"
+        android:layout_height="@dimen/_28sdp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:clickable="true"
+        android:visibility="gone"
+        android:src="@drawable/ic_alarm_off" />
+
+
+
+    <RelativeLayout
+        android:id="@+id/desLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_13sdp"
+        android:paddingBottom="@dimen/_8sdp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"
+            android:src="@drawable/demo" />
+
+        <TextView
+            android:id="@+id/program_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_toRightOf="@+id/image"
+            android:text="Example"
+            android:layout_alignParentTop="true"
+            android:textColor="#2d2c2c"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/programe_dec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/program_title"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_toRightOf="@+id/image"
+            android:maxLines="2"
+            android:text="mx,v,mnlkmblkomoproepkokkmvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvmccccccccccccccccccccccccccc"
+            android:textColor="#3e3c3c"
+            android:textSize="@dimen/_11sdp" />
+
+        <TextView
+            android:id="@+id/show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/programe_dec"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:clickable="true"
+            android:padding="@dimen/_4sdp"
+            android:text="  Read More  "
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_12sdp" />
+        <TextView
+            android:id="@+id/programe_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:padding="@dimen/_4sdp"
+            android:text="2:30 PM"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:layout_toRightOf="@+id/image"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_below="@+id/programe_dec"
+            android:textColor="#000"
+            android:textSize="@dimen/_12sdp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+

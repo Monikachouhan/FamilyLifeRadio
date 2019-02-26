@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_3sdp"
+    android:layout_marginLeft="@dimen/_3sdp"
+    android:layout_marginRight="@dimen/_3sdp"
+    app:cardBackgroundColor="#04ffffff"
+    android:elevation="@dimen/_3sdp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_3sdp">
+
+        <TextView
+            android:id="@+id/timeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9:10"
+            android:textColor="#dedede"
+            android:textSize="@dimen/_27sdp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/timeStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_7sdp"
+            android:text="PM"
+            android:textColor="@color/disable_color"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintBaseline_toBaselineOf="@id/timeText"
+            app:layout_constraintLeft_toRightOf="@id/timeText" />
+
+        <Switch
+            android:id="@+id/alarmSwitch"
+            style="@style/ToggleSwitchTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:thumbTint="#fff"
+            android:trackTint="#fff"
+            app:layout_constraintBaseline_toBaselineOf="@+id/timeStatus"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/collapseLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_4sdp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/alarmSwitch">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="Today"
+                android:visibility="invisible"
+                android:textColor="#fff"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/expandBtn"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="top|right"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_arrow_down_black_24dp" />
+        </LinearLayout>
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/expandable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:el_expanded="false"
+            app:layout_constraintTop_toBottomOf="@+id/timeText">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/repeatCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#fff"
+                    android:padding="@dimen/_4sdp"
+                    android:text="Repeat"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/_11sdp"
+                    tools:targetApi="lollipop" />
+
+                <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                    android:id="@+id/group_weekdays"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/repeatCheckBox"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    app:tbgChildSpacing="auto">
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/sun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="S"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/mon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="M"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/tues"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="T"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/wed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="W"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/thurse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="T"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/fri"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="F"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/satur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="S"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_13sdp" />
+
+
+                </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
+
+                <EditText
+                    android:id="@+id/alarmLable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/group_weekdays"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:hint="Label"
+                    android:backgroundTint="#dedede"
+                    android:padding="@dimen/_8sdp" />
+
+                <Button
+                    android:id="@+id/deleteBTN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/alarmLable"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@android:color/transparent"
+                    android:drawableLeft="@drawable/ic_delete_white_24dp"
+                    android:padding="@dimen/_3sdp"
+                    android:text="Delete"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/_12sdp" />
+
+                <ImageButton
+                    android:id="@+id/collapsBtn"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/alarmLable"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_arrow_up_black_24dp" />
+
+            </RelativeLayout>
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>
